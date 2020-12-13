@@ -5,7 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
+const OUTPUT_DIR = path.resolve(__dirname, "Output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
@@ -59,17 +59,26 @@ function intializeEmployee () {
         }
     ];
     inquirer.prompt(questions).then(function (response){
-        if (response.typeOfEmployee == "Engineer") {
-            intializeEngineer();
-        } else if (response.typeOfEmployee == "Intern") {
-            intializeIntern();
-        } else {
-            console.log("Quit creating employees");
-            render(teamMembers);
-            
+
+        switch (response.typeOfEmployee){
+            case "Intern":
+                intializeIntern();
+                break;
+            case "Engineer":
+                intializeEngineer();
+                break;
+            case "No more employees to add":
+                let htmlOutput = render(teamMembers);
+                fs.writeFile(outputPath, htmlOutput, function(err){
+                    if (err){
+                        console.log(err);
+                    }else{
+                        console.log("HTML File successfully wrote!");
+                    };
+                });
         }
     })
-}
+};
 
 function intializeEngineer () {
     const questions = [
@@ -134,6 +143,7 @@ function intializeIntern () {
 }
 
 intializeManager();
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!

@@ -10,7 +10,7 @@ class Intern extends Empolyee {
         return this.school;
     }
     getRole() {
-        return "Intern";
+        return Intern.name;
     }
 }
 module.exports = Intern;

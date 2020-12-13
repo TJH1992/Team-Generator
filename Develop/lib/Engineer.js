@@ -10,7 +10,7 @@ class Engineer extends Empolyee {
         return this.github;
     }
     getRole() {
-        return "Engineer";
+        return Engineer.name;
     }
 }
 module.exports = Engineer;

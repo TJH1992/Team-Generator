@@ -10,7 +10,7 @@ class Manager extends Empolyee {
         return this.officeNumber;
     }
     getRole() {
-        return "Manager";
+        return Manager.name;
     }
 }
 module.exports = Manager;
