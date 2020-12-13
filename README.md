@@ -3,6 +3,8 @@
 
   ![badge](https://img.shields.io/badge/license-MIT-brightgreen)<br/>
 
+  https://tjh1992.github.io/Team-Generator/
+
   ![demo](https://user-images.githubusercontent.com/70725231/102003157-7fc1fa00-3cb8-11eb-94da-45321edc06be.png)
 
 
