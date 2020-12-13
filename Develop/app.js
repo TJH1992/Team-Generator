@@ -66,6 +66,7 @@ function intializeEmployee () {
         } else {
             console.log("Quit creating employees");
             render(teamMembers);
+            
         }
     })
 }
