@@ -58,9 +58,9 @@ function intializeEmployee () {
             choices: ["Engineer", "Intern", "No more employees to add"]
         }
     ];
-    inquirer.prompt(questions).then(function (response){
+    inquirer.prompt(questions).then(function (employee){
 
-        switch (response.typeOfEmployee){
+        switch (employee.typeOfEmployee){
             case "Intern":
                 intializeIntern();
                 break;
@@ -68,8 +68,8 @@ function intializeEmployee () {
                 intializeEngineer();
                 break;
             case "No more employees to add":
-                let htmlOutput = render(teamMembers);
-                fs.writeFile(outputPath, htmlOutput, function(err){
+                let html = render(teamMembers);
+                fs.writeFile(outputPath, html, function(err){
                     if (err){
                         console.log(err);
                     }else{
@@ -136,7 +136,7 @@ function intializeIntern () {
     ];
     inquirer.prompt(questions).then(function (response) {
         console.log(response);
-        const intern = new Intern (response.name, response.id, response.email, response.github);
+        const intern = new Intern (response.name, response.id, response.email, response.school);
         teamMembers.push(intern);
         intializeEmployee();
     });
