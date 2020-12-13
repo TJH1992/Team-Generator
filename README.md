@@ -3,7 +3,7 @@
 
   ![badge](https://img.shields.io/badge/license-MIT-brightgreen)<br/>
 
-  ![alt text](Develop\assests\teamgeneratorgif.gif)
+  ![alt text](./assests/teamgeneratorgif.gif)
 
   ## Table of Contents
   - [Description](#projectDescription)
